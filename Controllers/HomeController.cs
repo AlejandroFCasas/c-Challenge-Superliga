@@ -14,7 +14,6 @@ namespace WebApplication6.Controllers
 
         List<string> NameRiverList = new List<string>();
 
-        List<string> listadoDePersonas = new List<string>();
 
         public ActionResult Index()
         {
@@ -38,7 +37,6 @@ namespace WebApplication6.Controllers
 
             var path = System.Web.Hosting.HostingEnvironment.MapPath("~/csv/socios.csv");
 
-            //List<string> valuesCollection = new List<string>();
 
             using (var f = new StreamReader(path))
             {
@@ -65,7 +63,6 @@ namespace WebApplication6.Controllers
                     .Average(x => x.age);
 
                 //Item Nro 3
-                //var item3 = new List<String>();
                 var item3 = valuesCollection
                     .OrderBy(x => x.age)
                     .Where(x => x.estudios.Equals("Universitario"))
@@ -86,18 +83,10 @@ namespace WebApplication6.Controllers
 
                 //Item Nro 4
                 var namePopulares = new List<String>();
-                foreach (var grouping in valuesCollection.Where(t => t.cuadro.Equals("River")).GroupBy(t=>t.name).Take(5)) //GroupBy(t => t.name).
+                foreach (var grouping in valuesCollection.Where(t => t.cuadro.Equals("River")).GroupBy(t=>t.name).Take(5))
 
-                //foreach (var grouping in valuesCollection.GroupBy(t => t.cuadro.Equals("River")).Take(5))
                 {
                     namePopulares.Add("El nombre " + grouping.Key + " se repite " + grouping.Count() + " veces.");
-                    //namePopulares2.Add (string.Format("'{0}' está repetido {1} veces.", grouping.Key, grouping.Count()));
-
-                    //namePopulares.Add(new SelectListItem()
-                    //{
-                    //    Text = grouping.Key,
-                    //    Value = grouping.Count().ToString()
-                    //});
                 }
 
                 TempData["nombrePopularesRiver"] = namePopulares;
