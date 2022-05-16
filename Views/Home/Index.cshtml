@@ -1,0 +1,17 @@
+﻿
+
+<div class="jumbotron col-md-4">
+    @using (Html.BeginForm("Data", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <span>Seleccione archivo .csv:</span>
+        <input  type="file" name="file" />
+        <hr />
+        <input type="submit" class="btn btn-primary btn-lg" value="Cargar" />
+
+        <br />
+    }
+</div>
+<span style=" font-size: 14pt;  color:red">@TempData["errorCsv"]</span>
+
+
+</div>

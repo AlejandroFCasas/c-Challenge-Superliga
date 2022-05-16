@@ -1,0 +1,71 @@
+﻿@model WebApplication6.Models.Socio
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Cantidad total de personas registradas</h2>
+        <p>
+            @TempData["totalPersonas"]
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>El promedio de edad de los socios de Racing. </h2>
+        <p>@TempData["RacingPromedioEdad"]</p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>los 5 nombres más comunes entre los hinchas de River</h2>
+        <p>
+
+
+            @foreach (var item in TempData["nombrePopularesRiver"] as List<String>)
+            {
+                @item.ToString();
+                <br>
+            }
+
+        </p>
+    </div>
+
+</div>
+<div class="row">
+
+
+
+
+
+    <div class="col-md-4">
+        <h4>
+            Un listado, ordenado de mayor a menor según la cantidad de
+            socios, que enumere, junto con cada equipo, el promedio de edad
+            de sus socios, la menor edad registrada y la mayor edad registrada.
+        </h4>
+        @foreach (var item in TempData["Item5"] as List<String>)
+        {
+            @item.ToString();
+            <br>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <h2>
+            Un listado con las 100 primeras personas casadas, con estudios
+            Universitarios, ordenadas de menor a mayor según su edad. Por
+            cada persona, mostrar: nombre, edad y equipo.
+        </h2>
+
+
+        @foreach (var item in @TempData["100Personas"] as List<WebApplication6.Models.Socio>)
+        {
+            @item.name
+            @item.age
+            @item.cuadro
+            <br>
+        }
+
+
+
+    </div>
+
+</div>
